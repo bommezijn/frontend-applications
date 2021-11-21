@@ -1,0 +1,21 @@
+{
+  "name": "frontend-applications",
+  "private":"true",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/bommezijn/frontend-applications.git",
+  "author": "Bommezijn <nathanbommezijn@gmail.com>",
+  "license": "AGPL-3.0-or-later",
+  "workspaces": ["client", "backend"],
+  "scripts": {
+    "dev:backend": "cd backend && nodemon index.js",
+    "dev:client": "cd client && next dev",
+    "dev": "run-p dev:*",
+    "lint:backend": "cd client && next lint",
+    "lint:client": "cd client && next lint",
+    "lint": "run-s lint:*"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
