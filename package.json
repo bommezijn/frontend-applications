@@ -11,7 +11,7 @@
     "dev:backend": "cd backend && nodemon index.js",
     "dev:client": "cd client && next dev",
     "dev": "run-p dev:*",
-    "lint:backend": "cd client && next lint",
+    "lint:backend": "cd backend && yarn run lint",
     "lint:client": "cd client && next lint",
     "lint": "run-s lint:*"
   },
