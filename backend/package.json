@@ -15,5 +15,9 @@
     "eslint-plugin-prettier": "^4.0.0",
     "nodemon": "^2.0.15",
     "prettier": "^2.4.1"
+  },
+  "scripts": {
+    "lint:fix": "eslint --fix *.js",
+    "lint": "eslint *.js"
   }
 }
