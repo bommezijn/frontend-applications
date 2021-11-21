@@ -37,25 +37,25 @@ Clone the project
 ```bash
   git clone https://github.com/bommezijn/frontend-data.git
 ```
-
 Go to the project directory
-
 ```bash
   cd ../frontend-applications
 ```
-
 Install dependencies
-
 ```bash
-  npm postinstall
+  yarn
 ```
-
 Start development
 
 ```bash
-  npm run start
+  yarn run dev
+```
+Lint directories
+```bash
+  yarn run lint
 ```
 
+**To learn more about run scripts and more check the wiki [project-setup](https://github.com/bommezijn/frontend-applications/wiki/project-setup)**
 
 ## Documentation
 
