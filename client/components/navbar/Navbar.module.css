@@ -1,12 +1,13 @@
 .navigation {
   width: clamp(90vw, 100%, 100vw);
-  /* background-color: #ffcc00; */
   display: flex;
   flex: 1 1;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   padding: 0 1em;
+  background-color: #ffffff;
+  border-bottom: 2px solid #F3F3F4;
 }
 
 .logo {
@@ -38,7 +39,7 @@
   transition: opacity 200ms ease-in, border-radius 150ms ease-in, background-color 250ms ease-in;
 }
 
-.navigation_list_item:hover {
+.navigation_list_item:hover, .navigation_list_item:active {
   opacity: 1;
   background-color: #F3F3F3;
   border-radius: 5px;
@@ -50,6 +51,6 @@
   transition: opacity 200ms ease-in;
 }
 
-.linkGithub:hover {
+.linkGithub:hover,.linkGithub:active {
   opacity: 1;
 }
