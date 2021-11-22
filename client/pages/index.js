@@ -21,7 +21,8 @@ export default function Home() {
         handle={'bommezijn'}
       />
       <main className={styles.main}>
-        <section>
+          <h1 className={styles.title}>Examples</h1>
+        <section className={styles.grid} id={arr[0].slug}>
           <article className={styles.card}>
             <Image
               src={'https://c.tenor.com/LfUYCqG9UVkAAAAC/shocked-pengu.gif'}
@@ -31,10 +32,23 @@ export default function Home() {
             />
             <p className={styles.description}>hello</p>
           </article>
+          <article className={styles.card}>
+            <Image
+              src={'https://c.tenor.com/LfUYCqG9UVkAAAAC/shocked-pengu.gif'}
+              width={250}
+              height={250}
+              alt={'Shocked Pengu from League of Legends'}
+            />
+          <p className={styles.description}>Hier heb je een pengu die geschokeert is.</p>
+          </article>
         </section>
-
+        <section className={styles.main} id={arr[1].slug}>
+          <h1>test section</h1>
+        </section>
       </main>
       <Footer />
     </div>
   )
 }
+
+
