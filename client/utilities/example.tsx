@@ -50,3 +50,6 @@ console.log(bear.name, bear.honey)
 
 // const bear = getBear('winny the pooh', true)
 // console.log(bear)
+
+
+export {}
