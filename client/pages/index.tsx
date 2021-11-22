@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 
 const Title = (wurd:string) => {
   return (
-    <h1>wurd</h1>
+    <h1>{wurd}</h1>
   )
 }
 
