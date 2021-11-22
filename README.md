@@ -18,7 +18,7 @@ This course is specifically given by the Hogeschool van Amsterdam CMD. More info
 - Working with a framework or system
 - Knowing the merits, demerits, and costs all together.
 - Rendering data dynamically
-- TypeScript
+- TypeScript (soon?)
 - Developing thy skills in development
 - <span style="color:red">More coming...</span>
 
