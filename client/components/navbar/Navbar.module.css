@@ -1,0 +1,55 @@
+.navigation {
+  width: clamp(90vw, 100%, 100vw);
+  /* background-color: #ffcc00; */
+  display: flex;
+  flex: 1 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 1em;
+}
+
+.logo {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.navigation_list {
+  padding-left: 0.5em;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex: 1 1;
+  align-items: center;
+}
+
+.navigation_list > * {
+  display: inline;
+  padding: 0.5em 0.5em;
+  margin: 0 0.5em;
+  cursor: pointer;
+  /* border: 1px solid black; */
+}
+
+.navigation_list_item {
+  font-weight: bold;
+  opacity: 0.5;
+  color: black;
+  transition: opacity 200ms ease-in, border-radius 150ms ease-in, background-color 250ms ease-in;
+}
+
+.navigation_list_item:hover {
+  opacity: 1;
+  background-color: #F3F3F3;
+  border-radius: 5px;
+}
+
+.linkGithub {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 200ms ease-in;
+}
+
+.linkGithub:hover {
+  opacity: 1;
+}
