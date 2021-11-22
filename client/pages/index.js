@@ -21,7 +21,12 @@ export default function Home() {
       />
       <main className={styles.main}>
         <p>hello</p>
-        <img src="https://c.tenor.com/LfUYCqG9UVkAAAAC/shocked-pengu.gif" alt="Shocked Penguin" />
+        <Image
+          src={'https://c.tenor.com/LfUYCqG9UVkAAAAC/shocked-pengu.gif'}
+          width={250}
+          height={250}
+          alt={'Shocked Pengu from League of Legends'}
+        />
       </main>
 
       <footer className={styles.footer}>
