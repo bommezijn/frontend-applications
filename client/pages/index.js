@@ -21,13 +21,18 @@ export default function Home() {
         handle={'bommezijn'}
       />
       <main className={styles.main}>
-        <p>hello</p>
-        <Image
-          src={'https://c.tenor.com/LfUYCqG9UVkAAAAC/shocked-pengu.gif'}
-          width={250}
-          height={250}
-          alt={'Shocked Pengu from League of Legends'}
-        />
+        <section>
+          <article className={styles.card}>
+            <Image
+              src={'https://c.tenor.com/LfUYCqG9UVkAAAAC/shocked-pengu.gif'}
+              width={250}
+              height={250}
+              alt={'Shocked Pengu from League of Legends'}
+            />
+            <p className={styles.description}>hello</p>
+          </article>
+        </section>
+
       </main>
       <Footer />
     </div>
