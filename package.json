@@ -6,7 +6,19 @@
   "author": "bommezijn <nathanbommezijn@gmail.com>",
   "license": "MIT",
   "private": true,
-  "dependencies": {
+  "workspaces": [
+    "client",
+    "backend"
+  ],
+  "scripts": {
+    "dev:backend": "cd backend && nodemon index.js",
+    "dev:client": "cd client && yarn run dev",
+    "dev": "run-p dev:*",
+    "lint:backend": "cd backend && yarn run lint",
+    "lint:client": "cd client && next lint",
+    "lint": "run-s lint:*"
+  },
+  "devDependencies": {
     "npm-run-all": "^4.1.5"
   }
 }

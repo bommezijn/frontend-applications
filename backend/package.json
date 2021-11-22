@@ -1,0 +1,24 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "bommezijn <nathanbommezijn@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "eslint": "^8.3.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.4.1"
+  },
+  "scripts": {
+    "lint:fix": "eslint --fix *.js",
+    "lint": "eslint *.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
