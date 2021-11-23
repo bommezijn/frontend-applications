@@ -3,13 +3,24 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Navbar from '../components/navbar/Navbar'
 import { Footer } from '../components/footer/Footer'
-import { DataProvider } from '../providers/DataContext'
+import { DataProvider } from '../contexts/DataContext'
+import List from '../components/list/List'
+
+// const testFunc = async () => {
+//   const response = await fetchData('https://api.themoviedb.org/3','/person/popular' );
+//   console.log(response)
+//   return response
+// }
+// testFunc()
+// const test = fetchData('https://api.themoviedb.org/3','/person/popular' )
+// 'https://api.themoviedb.org/3'
+// '/person/popular'
 
 const arr = [{slug: '#one', title: 'one'},{slug: '#two', title: 'two'}]
 
 export default function Home() {
+
   return (
-  <DataProvider>
     <div className={styles.container}>
       <Head>
         <title>Frontend Applications</title>
@@ -22,7 +33,6 @@ export default function Home() {
         handle={'bommezijn'}
       />
       <main className={styles.main}>
-          <h1 className={styles.title}>Examples</h1>
         <section className={styles.grid} id={arr[0].slug}>
           <article className={styles.card}>
             <Image
@@ -43,13 +53,14 @@ export default function Home() {
           <p className={styles.description}>Hier heb je een pengu die geschokeert is.</p>
           </article>
         </section>
-        <section className={styles.main} id={arr[1].slug}>
-          <h1>test section</h1>
-        </section>
+        <DataProvider>
+          <section>
+            <List />
+          </section>
+        </DataProvider>
       </main>
       <Footer />
     </div>
-    </DataProvider>
   )
 }
 
