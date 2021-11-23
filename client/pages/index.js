@@ -3,12 +3,13 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import Navbar from '../components/navbar/Navbar'
 import { Footer } from '../components/footer/Footer'
-
+import { DataProvider } from '../providers/DataContext'
 
 const arr = [{slug: '#one', title: 'one'},{slug: '#two', title: 'two'}]
 
 export default function Home() {
   return (
+  <DataProvider>
     <div className={styles.container}>
       <Head>
         <title>Frontend Applications</title>
@@ -48,6 +49,7 @@ export default function Home() {
       </main>
       <Footer />
     </div>
+    </DataProvider>
   )
 }
 
