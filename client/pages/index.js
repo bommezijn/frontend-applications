@@ -31,15 +31,6 @@ export default function Home() {
               height={250}
               alt={'Shocked Pengu from League of Legends'}
             />
-            <p className={styles.description}>hello</p>
-          </article>
-          <article className={styles.card}>
-            <Image
-              src={'https://c.tenor.com/LfUYCqG9UVkAAAAC/shocked-pengu.gif'}
-              width={250}
-              height={250}
-              alt={'Shocked Pengu from League of Legends'}
-            />
           <p className={styles.description}>Hier heb je een pengu die geschokeert is.</p>
           </article>
         </section>
