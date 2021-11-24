@@ -6,17 +6,7 @@ import { Footer } from '../components/footer/Footer'
 import { DataProvider } from '../contexts/DataContext'
 import List from '../components/list/List'
 
-// const testFunc = async () => {
-//   const response = await fetchData('https://api.themoviedb.org/3','/person/popular' );
-//   console.log(response)
-//   return response
-// }
-// testFunc()
-// const test = fetchData('https://api.themoviedb.org/3','/person/popular' )
-// 'https://api.themoviedb.org/3'
-// '/person/popular'
-
-const arr = [{slug: '#one', title: 'one'},{slug: '#two', title: 'two'}]
+const arr = [{slug: '/one', title: 'one'},{slug: '/two', title: 'two'}]
 
 export default function Home() {
 
