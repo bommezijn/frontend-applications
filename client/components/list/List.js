@@ -17,10 +17,9 @@ const List = () => {
  */
 const ListItem = () => {
   const dataElements = useContext(DataContext)
-  // console.log(`listItem`,dataElements[0]?.name)
   return (
       <>
-        {dataElements.map((e,i) => {return <li key={i}>{e.name}</li>})}
+        {dataElements.map((e,i) => {return <li key={i}>{e?.name}</li>})}
       </>
   )
 }
