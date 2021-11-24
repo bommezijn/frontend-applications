@@ -17,6 +17,7 @@ const List = () => {
  */
 const ListItem = () => {
   const dataElements = useContext(DataContext)
+  console.log(dataElements)
   return (
       <>
         {dataElements.map((e,i) => {return <li key={i}>{e?.name}</li>})}
