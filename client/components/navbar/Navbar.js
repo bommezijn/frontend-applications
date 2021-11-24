@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from '../navbar/Navbar.module.css';
 
 /**
@@ -27,9 +28,9 @@ const NavItems = ({pages}) => {
     {
       pages.map((p,i) => {
         return <li key={i} className={styles.navigation_list_item}>
-          <a href={p.slug}>
-            {p.title}
-          </a>
+          <Link href={p.slug}>
+            <a>{p.title}</a>
+          </Link>
         </li>
       })
     }
