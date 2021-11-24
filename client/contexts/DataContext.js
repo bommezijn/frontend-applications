@@ -11,7 +11,6 @@ const retrieveData = async () => {
 
 const DataContext = createContext([])
 
-
 export const DataProvider = ({ children }) => {
   const IMAGE_URL = 'https://image.tmdb.org/t/p/w500/';
   const [data, setData] = useState([])
@@ -20,7 +19,7 @@ export const DataProvider = ({ children }) => {
     retrieveData()
       .then(apiData => apiData.results)
       .then(apiResults => {
-        console.log(`apiResults:`,apiResults)
+        // console.log(`apiResults:`,apiResults)
         return apiResults.map(data => {
           const ACTOR = {
             name: data.name,
@@ -31,7 +30,10 @@ export const DataProvider = ({ children }) => {
           return ACTOR
         })
       })
-      .then(santizedData => {console.log(`datacont useEff:`,santizedData); setData(santizedData)})
+      .then(santizedData => {
+        // console.log(`datacont useEff:`,santizedData);
+        setData(santizedData)
+      })
   }, [])
 
   return (
