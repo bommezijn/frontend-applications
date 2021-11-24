@@ -2,20 +2,22 @@ import { createContext, useState, useEffect } from 'react'
 import fetchData from '../utilities/fetchData'
 import { roundNumber,numberToGender,createPath } from '../utilities/helpers';
 
-const testFunc = async () => {
-  const response = await fetchData('https://api.themoviedb.org/3','/person/popular' );
-  return response
+const retrieveData = async () => {
+  const url = `https://frontend-applications-kvx2iph88-dewarian.vercel.app/api/popular?page=1`
+  const response = await fetch(url)
+  const data = await response.json()
+  return data
 }
 
 const DataContext = createContext([])
-const IMAGE_URL = 'https://image.tmdb.org/t/p/w500/';
 
 
 export const DataProvider = ({ children }) => {
+  const IMAGE_URL = 'https://image.tmdb.org/t/p/w500/';
   const [data, setData] = useState([])
   
   useEffect(() => {
-    testFunc()
+    retrieveData()
       .then(apiData => apiData.results)
       .then(apiResults => {
         console.log(`apiResults:`,apiResults)
