@@ -45,8 +45,11 @@ const BarChart = () => {
         .attr('class', 'y axis')
         .call(d3.axisLeft(yscale))
 
-      svg.select('.x-axis').call(xaxis)      
-      svg.select('.y-axis').call(yaxis)
+      svg.select('.x-axis').call(xaxis)
+        .selectAll('text')
+        .attr('transform', `translate(-10,0) rotate(-45)`)
+        .style('text-anchor', 'end');
+      svg.select('.y-axis').transition().call(yaxis)
       
       svg
         .select('.plot-area')
@@ -65,14 +68,17 @@ const BarChart = () => {
           },
           (exit) => {return exit.remove()}
         )
-      .attr('class', 'bar') //Why give it a class?
-      .attr('x', (d) => {return xscale(d.name)})
-      .attr('width', xscale.bandwidth())
-      .attr('y', (d) => {return yscale(d.rating)})
       .transition()
-      .style('fill', '#B61544')
-      .attr('height', (d) => {return dimensions.height - yscale(d.rating)})  
-      .select('title').text(d => {return `${d.name}: ${d.rating}`});
+        .ease(d3.easeQuadIn)
+        .delay((d,i) => {return i*80})
+        .attr('class', 'bar') //Why give it a class?
+        .attr('x', (d) => {return xscale(d.name)})
+        .attr('width', xscale.bandwidth())
+        .attr('y', (d) => {return yscale(d.rating)})
+        .transition()
+          .style('fill', '#B61544')
+          .attr('height', (d) => {return dimensions.height - yscale(d.rating)})  
+          .select('title').text(d => {return `${d.name}: ${d.rating}`});
       /* 
       const xAxis = g => 
       g
@@ -94,6 +100,10 @@ const BarChart = () => {
   return (
     <svg
       ref={ref}
+      style={{
+        height: 700,
+        width: '100%',
+      }}
     >
       <g className="plot-area"></g>
       <g className="x-axis"></g>

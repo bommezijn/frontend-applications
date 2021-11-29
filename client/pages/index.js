@@ -28,24 +28,13 @@ export default function Home() {
         pages={arr}
         handle={'bommezijn'}
       />
-      <main className={styles.main}>
-        <section className={styles.grid} id={arr[0].slug}>
-          <article className={styles.card}>
-            <Image
-              src={'https://c.tenor.com/LfUYCqG9UVkAAAAC/shocked-pengu.gif'}
-              width={250}
-              height={250}
-              alt={'Shocked Pengu from League of Legends'}
-            />
-          <p className={styles.description}>Hier heb je een pengu die geschokeert is.</p>
-          </article>
-        </section>
+      <main>
         <DataProvider>
-          <section>
-            {/* <List /> */}
-            {/* {DataContext && <BarChart/>} */}
-          </section>
-        </DataProvider>
+            <section>
+              {/* <List /> */}
+              {DataContext && <BarChart/>}
+            </section>
+          </DataProvider>
       </main>
       <Footer />
     </div>
