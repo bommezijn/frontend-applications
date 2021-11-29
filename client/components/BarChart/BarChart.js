@@ -11,46 +11,51 @@ import DataContext from '../../contexts/DataContext'
  * @returns d3js rendered bar chart
  */
 const BarChart = () => {
+  const dimensions = {
+    margin: { t: 20, r: 20, b: 30, l: 40 },
+    get width() { return 600 - this.margin.l - this.margin.r },
+    get height() { return 600 - this.margin.t - this.margin.b }
+  }
   const dataset = useContext(DataContext)
   console.log(dataset)
 
   const ref = useD3(
     (svg) => {
-      const dimensions = {
-        margin: {t:20, r: 20, b: 30, l: 40},
-        get width() {return 600 - this.margin.l - this.margin.r},
-        get height() {return 600 - this.margin.t - this.margin.b}
-      }
+      // const dimensions = {
+      //   margin: {t:20, r: 20, b: 30, l: 40},
+      //   get width() {return 600 - this.margin.l - this.margin.r},
+      //   get height() {return 600 - this.margin.t - this.margin.b}
+      // }
 
       const xscale = d3
         .scaleBand()
-        .domain(dataset.map(d=> d.name))
+        .domain(dataset.map(d => d.name))
         .range([0, dimensions.width])
         .padding(0.2)
 
       const yscale = d3
         .scaleLinear()
-        .domain([0, d3.max(dataset, d=> {return d.rating})])
+        .domain([0, d3.max(dataset, d => { return d.rating })])
         .range([dimensions.height, 0])
-      
+
       const xaxis = g =>
         g
-        .attr('transform', `translate(0, ${dimensions.height - dimensions.margin.b})`)
-        .attr('class', 'x axis')
-        .call(d3.axisBottom(xscale))
-      
-      const yaxis = g => 
-      g
-        // .attr('tranform', `translate(${dimensions.height})`)
-        .attr('class', 'y axis')
-        .call(d3.axisLeft(yscale))
+          .attr('transform', `translate(0, ${dimensions.height - dimensions.margin.b})`)
+          .attr('class', 'x-axis')
+          .call(d3.axisBottom(xscale))
+
+      const yaxis = g =>
+        g
+          .attr('tranform', `translate(${dimensions.height})`)
+          .attr('class', 'y-axis')
+          .call(d3.axisLeft(yscale))
 
       svg.select('.x-axis').call(xaxis)
         .selectAll('text')
         .attr('transform', `translate(-10,0) rotate(-45)`)
         .style('text-anchor', 'end');
       svg.select('.y-axis').transition().call(yaxis)
-      
+
       svg
         .select('.plot-area')
         .selectAll('rect')
@@ -66,36 +71,21 @@ const BarChart = () => {
           (update) => {
             return update.transition().style('fill', '#DC5A41')
           },
-          (exit) => {return exit.remove()}
+          (exit) => { return exit.remove() }
         )
-      .transition()
-        .ease(d3.easeQuadIn)
-        .delay((d,i) => {return i*80})
-        .attr('class', 'bar') //Why give it a class?
-        .attr('x', (d) => {return xscale(d.name)})
-        .attr('width', xscale.bandwidth())
-        .attr('y', (d) => {return yscale(d.rating)})
         .transition()
-          .style('fill', '#B61544')
-          .attr('height', (d) => {return dimensions.height - yscale(d.rating)})  
-          .select('title').text(d => {return `${d.name}: ${d.rating}`});
-      /* 
-      const xAxis = g => 
-      g
-        .attr('class', 'x axis')
-        .attr('transform', `translate(0, ${dimensions.height - margin.b})`)
-        .call(d3.axisBottom(x))
-
-      const yAxis = g => 
-        g
-          .attr('class', 'x axis')
-          .attr('transform', `translate(${margin.l},0)`)
-          .call(d3.axisLeft(yscale))
-      */
-
-
+        .ease(d3.easeQuadIn)
+        .delay((d, i) => { return i * 80 })
+        .attr('class', 'bar') //Why give it a class?
+        .attr('x', (d) => { return xscale(d.name) })
+        .attr('width', xscale.bandwidth())
+        .attr('y', (d) => { return yscale(d.rating) })
+        .transition()
+        .style('fill', '#B61544')
+        .attr('height', (d) => { return dimensions.height - yscale(d.rating) })
+        .select('title').text(d => { return `${d.name}: ${d.rating}` });
     }
-    ,[dataset.length])
+    , [dataset.length])
 
   return (
     <svg
@@ -103,11 +93,16 @@ const BarChart = () => {
       style={{
         height: 700,
         width: '100%',
+        marginRight: '0px',
+        marginLeft: '0px',
+        transform: `translate(${dimensions.margin.l}, ${dimensions.margin.t})`
       }}
     >
-      <g className="plot-area"></g>
-      <g className="x-axis"></g>
-      <g className="y-axis"></g>
+      <g>
+        <g className="plot-area" />
+        <g className="x-axis" />
+        <g className="y-axis" />
+      </g>
     </svg>
   )
 }
