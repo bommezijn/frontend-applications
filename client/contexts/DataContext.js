@@ -19,7 +19,6 @@ export const DataProvider = ({ children }) => {
     retrieveData()
       .then(apiData => apiData.results)
       .then(apiResults => {
-        // console.log(`apiResults:`,apiResults)
         return apiResults.map(data => {
           const ACTOR = {
             name: data.name,
