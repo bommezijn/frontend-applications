@@ -2,9 +2,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { Footer } from '../components/footer/Footer'
-import { DataProvider } from '../contexts/DataContext'
-import List from '../components/list/List'
-import BarChart from '../components/BarChart/BarChart'
 
 export default function Home() {
 
@@ -16,16 +13,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <section>
-          <h1>Hello popular celebrities</h1>
-          <p>According to the movies database the current most popular people are:</p>
-          <DataProvider>
-              {/* <List /> */}
-            <BarChart chartWidth={600} chartHeight={400}/>
-          </DataProvider>
-        </section>
+        <h1>Hello frontpage</h1>
       </main>
-      <Footer />
     </div>
   )
 }
