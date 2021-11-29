@@ -32,7 +32,7 @@ export default function Home() {
         <DataProvider>
             <section>
               {/* <List /> */}
-              {DataContext && <BarChart/>}
+              {DataContext && <BarChart dWidth={600} dHeight={400}/>}
             </section>
           </DataProvider>
       </main>

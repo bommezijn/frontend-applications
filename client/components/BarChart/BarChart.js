@@ -2,6 +2,7 @@ import useD3 from '../../hooks/useD3'
 import * as d3 from 'd3'
 import { useContext } from 'react'
 import DataContext from '../../contexts/DataContext'
+import styles from '../BarChart/BarChart.module.css'
 
 
 /**
@@ -10,23 +11,17 @@ import DataContext from '../../contexts/DataContext'
  * @param {Object} Dataset dataset from an API. JSON format
  * @returns d3js rendered bar chart
  */
-const BarChart = () => {
+const BarChart = ({dWidth, dHeight}) => {
   const dimensions = {
     margin: { t: 20, r: 20, b: 30, l: 40 },
-    get width() { return 600 - this.margin.l - this.margin.r },
-    get height() { return 600 - this.margin.t - this.margin.b }
+    get width() { return dWidth - this.margin.l - this.margin.r },
+    get height() { return dHeight - this.margin.t - this.margin.b }
   }
   const dataset = useContext(DataContext)
   console.log(dataset)
 
   const ref = useD3(
     (svg) => {
-      // const dimensions = {
-      //   margin: {t:20, r: 20, b: 30, l: 40},
-      //   get width() {return 600 - this.margin.l - this.margin.r},
-      //   get height() {return 600 - this.margin.t - this.margin.b}
-      // }
-
       const xscale = d3
         .scaleBand()
         .domain(dataset.map(d => d.name))
@@ -40,7 +35,7 @@ const BarChart = () => {
 
       const xaxis = g =>
         g
-          .attr('transform', `translate(0, ${dimensions.height - dimensions.margin.b})`)
+          .attr('transform', `translate(0, ${dimensions.height})`)
           .attr('class', 'x-axis')
           .call(d3.axisBottom(xscale))
 
@@ -90,15 +85,12 @@ const BarChart = () => {
   return (
     <svg
       ref={ref}
+      className={styles.graph}
       style={{
-        height: 700,
-        width: '100%',
-        marginRight: '0px',
-        marginLeft: '0px',
         transform: `translate(${dimensions.margin.l}, ${dimensions.margin.t})`
       }}
     >
-      <g>
+      <g style={{transform: `translate(${dimensions.margin.l}px, ${dimensions.margin.t}px)`}}>
         <g className="plot-area" />
         <g className="x-axis" />
         <g className="y-axis" />
