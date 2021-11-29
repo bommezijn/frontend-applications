@@ -29,12 +29,14 @@ export default function Home() {
         handle={'bommezijn'}
       />
       <main>
-        <DataProvider>
-            <section>
+        <section>
+          <h1>Hello popular celebrities</h1>
+          <p>According to the movies database the current most popular people are:</p>
+          <DataProvider>
               {/* <List /> */}
-              {DataContext && <BarChart dWidth={600} dHeight={400}/>}
-            </section>
+            {DataContext && <BarChart dWidth={600} dHeight={400}/>}
           </DataProvider>
+        </section>
       </main>
       <Footer />
     </div>
