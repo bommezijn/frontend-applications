@@ -8,17 +8,18 @@ import styles from '../BarChart/BarChart.module.css'
 /**
  * @description Bar chart component.
  * @todo Make the size more modular. with e.g. props 
- * @param {Object} Dataset dataset from an API. JSON format
+//  * @param {Object} Dataset dataset from an API. JSON format
+ * @param {Number} chartHeight Height of SVG in px
+ * @param {Number} chartWidth Width of SVG in px
  * @returns d3js rendered bar chart
  */
-const BarChart = ({dWidth, dHeight}) => {
+const BarChart = ({chartWidth, chartHeight}) => {
   const dimensions = {
     margin: { t: 20, r: 20, b: 30, l: 40 },
-    get width() { return dWidth - this.margin.l - this.margin.r },
-    get height() { return dHeight - this.margin.t - this.margin.b }
+    get width() { return chartWidth - this.margin.l - this.margin.r },
+    get height() { return chartHeight - this.margin.t - this.margin.b }
   }
   const dataset = useContext(DataContext)
-  console.log(dataset)
 
   const ref = useD3(
     (svg) => {
@@ -80,9 +81,9 @@ const BarChart = ({dWidth, dHeight}) => {
         .attr('height', (d) => { return dimensions.height - yscale(d.rating) })
         .select('title').text(d => { return `${d.name}: ${d.rating}` });
     }
-    , [dataset.length])
+    , [dataset])
 
-  return (
+    const graph =
     <svg
       ref={ref}
       className={styles.graph}
@@ -96,6 +97,11 @@ const BarChart = ({dWidth, dHeight}) => {
         <g className="y-axis" />
       </g>
     </svg>
+
+  return (
+    <>
+      {dataset ? graph : <h1>Waiting for data</h1>}
+    </>
   )
 }
 

@@ -7,14 +7,11 @@ import { DataProvider } from '../contexts/DataContext'
 import List from '../components/list/List'
 import BarChart from '../components/BarChart/BarChart'
 import DataContext from '../contexts/DataContext'
-import { useContext } from 'react'
 
 
 const arr = [{slug: '/one', title: 'one'},{slug: '/two', title: 'two'}]
 
 export default function Home() {
-  const data = useContext(DataContext)
-  console.log(data)
 
   return (
     <div className={styles.container}>
@@ -34,7 +31,7 @@ export default function Home() {
           <p>According to the movies database the current most popular people are:</p>
           <DataProvider>
               {/* <List /> */}
-            {DataContext && <BarChart dWidth={600} dHeight={400}/>}
+            <BarChart chartWidth={600} chartHeight={400}/>
           </DataProvider>
         </section>
       </main>

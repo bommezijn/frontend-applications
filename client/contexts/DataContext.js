@@ -31,10 +31,10 @@ export const DataProvider = ({ children }) => {
         })
       })
       .then(santizedData => {
-        // console.log(`datacont useEff:`,santizedData);
+        console.log(`datacont useEff:`,santizedData);
         setData(santizedData)
       })
-  }, [])
+  }, [data.length])
 
   return (
     <DataContext.Provider value={data}>{children}</DataContext.Provider>
