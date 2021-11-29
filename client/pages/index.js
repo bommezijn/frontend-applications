@@ -5,10 +5,16 @@ import Navbar from '../components/navbar/Navbar'
 import { Footer } from '../components/footer/Footer'
 import { DataProvider } from '../contexts/DataContext'
 import List from '../components/list/List'
+import BarChart from '../components/BarChart/BarChart'
+import DataContext from '../contexts/DataContext'
+import { useContext } from 'react'
+
 
 const arr = [{slug: '/one', title: 'one'},{slug: '/two', title: 'two'}]
 
 export default function Home() {
+  const data = useContext(DataContext)
+  console.log(data)
 
   return (
     <div className={styles.container}>
@@ -36,7 +42,8 @@ export default function Home() {
         </section>
         <DataProvider>
           <section>
-            <List />
+            {/* <List /> */}
+            {/* {DataContext && <BarChart/>} */}
           </section>
         </DataProvider>
       </main>
