@@ -1,8 +1,28 @@
 import Head from 'next/head'
+import { useEffect, useState } from 'react'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+//https://frontend-applications-kvx2iph88-dewarian.vercel.app/api/popular
+const getData = async(url, pageNumber) => {
+  const res = await fetch(`${url}?page=${pageNumber}`)
+  const data = await res.json()
+  return data
+}
 
+export default function Home() {
+  const [data, setData] = useState([])
+  const [pageNum, setPageNum] = useState(1)
+
+    useEffect(() => {
+     const retrievedData = getData(`https://frontend-applications-kvx2iph88-dewarian.vercel.app/api/popular`, pageNum)    
+    setData(retrievedData)    
+    },[])
+
+/* 
+TODO: Fetch data on interaction
+TODO: Populate barChart with new Data
+TODO: Update the barChart on a clickEvent with fetch function getData(useState(data))
+*/
   return (
     <div className={styles.container}>
       <Head>
@@ -12,9 +32,8 @@ export default function Home() {
       </Head>
       <main>
         <h1>Hello frontpage</h1>
+        {/* {data.map(z => <p>{z}</p>)} */}
       </main>
     </div>
   )
 }
-
-
