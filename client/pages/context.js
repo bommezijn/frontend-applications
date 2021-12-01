@@ -1,8 +1,7 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { DataProvider, DataContext } from '../contexts/DataContext'
+import { DataProvider } from '../contexts/DataContext'
 import BarChart from '../components/BarChart/BarChart'
-import { useContext } from 'react'
 
 export default function Context() {
   return (
@@ -18,7 +17,6 @@ export default function Context() {
           <h1>Hello popular celebrities</h1>
           <p>According to the movies database the current most popular people are:</p>
           <DataProvider>
-              {/* <List /> */}
             <BarChart
               dataset={''}
               chartWidth={600}
