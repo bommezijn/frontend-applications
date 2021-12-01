@@ -29,9 +29,9 @@ export default function Home() {
     },[pageNum])
 
 /* 
-TODO: Fetch data on interaction
-TODO: Populate barChart with new Data
-TODO: Update the barChart on a clickEvent with fetch function getData(useState(data))
+//TODO: Fetch data on interaction
+//TODO: Populate barChart with new Data
+//TODO: Update the barChart on a clickEvent with fetch function getData(useState(data))
 */
   return (
     <div className={styles.container}>
