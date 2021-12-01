@@ -13,25 +13,28 @@ import styles from '../BarChart/BarChart.module.css'
  * @param {Number} chartWidth Width of SVG in px
  * @returns d3js rendered bar chart
  */
-const BarChart = ({chartWidth, chartHeight}) => {
+
+// const dataset = useContext(DataContext)
+
+const BarChart = ({dataset, string, numerical, chartWidth, chartHeight}) => {
   const dimensions = {
     margin: { t: 20, r: 20, b: 30, l: 40 },
     get width() { return chartWidth - this.margin.l - this.margin.r },
     get height() { return chartHeight - this.margin.t - this.margin.b }
   }
-  const dataset = useContext(DataContext)
+  // const dataset = useContext(DataContext)
 
   const ref = useD3(
     (svg) => {
       const xscale = d3
         .scaleBand()
-        .domain(dataset.map(d => d.name))
+        .domain(dataset.map(d => d[string]))
         .range([0, dimensions.width])
         .padding(0.2)
 
       const yscale = d3
         .scaleLinear()
-        .domain([0, d3.max(dataset, d => { return d.rating })])
+        .domain([0, d3.max(dataset, d => { return d[numerical] })])
         .range([dimensions.height, 0])
 
       const xaxis = g =>
@@ -72,14 +75,14 @@ const BarChart = ({chartWidth, chartHeight}) => {
         .transition()
         .ease(d3.easeQuadIn)
         .delay((d, i) => { return i * 80 })
-        .attr('class', 'bar') //Why give it a class?
-        .attr('x', (d) => { return xscale(d.name) })
+        .attr('className', `${styles.bar}`) //Why give it a class?
+        .attr('x', (d) => { return xscale(d[string]) })
         .attr('width', xscale.bandwidth())
-        .attr('y', (d) => { return yscale(d.rating) })
+        .attr('y', (d) => { return yscale(d[numerical]) })
         .transition()
         .style('fill', '#B61544')
-        .attr('height', (d) => { return dimensions.height - yscale(d.rating) })
-        .select('title').text(d => { return `${d.name}: ${d.rating}` });
+        .attr('height', (d) => { return dimensions.height - yscale(d[numerical]) })
+        .select('title').text(d => { return `${d[string]}: ${d[numerical]}` });
     }
     , [dataset])
 
@@ -88,10 +91,14 @@ const BarChart = ({chartWidth, chartHeight}) => {
       ref={ref}
       className={styles.graph}
       style={{
+        width: `${chartWidth}`,
+        height: `${chartHeight}`,
         transform: `translate(${dimensions.margin.l}, ${dimensions.margin.t})`
       }}
     >
-      <g style={{transform: `translate(${dimensions.margin.l}px, ${dimensions.margin.t}px)`}}>
+      <g 
+      style={{transform: `translate(${dimensions.margin.l}px, ${dimensions.margin.t}px)`}}
+      >
         <g className="plot-area" />
         <g className="x-axis" />
         <g className="y-axis" />

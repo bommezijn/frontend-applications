@@ -1,9 +1,11 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { DataProvider } from '../contexts/DataContext'
+import { DataProvider, DataContext } from '../contexts/DataContext'
 import BarChart from '../components/BarChart/BarChart'
+import { useContext } from 'react'
 
 export default function Context() {
+
 
   return (
     <div className={styles.container}>
@@ -19,7 +21,12 @@ export default function Context() {
           <p>According to the movies database the current most popular people are:</p>
           <DataProvider>
               {/* <List /> */}
-            <BarChart chartWidth={600} chartHeight={400}/>
+            <BarChart
+              chartWidth={600}
+              chartHeight={400}
+              string={'name'}
+              numerical={'rating'}
+            />
           </DataProvider>
         </section>
     </main>
