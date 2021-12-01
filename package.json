@@ -15,7 +15,7 @@
     "dev:client": "cd client && yarn run dev",
     "dev": "run-p dev:*",
     "lint:backend": "cd backend && yarn run lint",
-    "lint:client": "cd client && next lint",
+    "lint:client": "cd client && next lint --fix",
     "lint": "run-s lint:*",
     "postinstall": "husky install"
   },
