@@ -13,7 +13,7 @@ import styles from '../BarChart/BarChart.module.css'
  * @param {Number} chartWidth Width of SVG in px
  * @param {String} string X scale values, must be strings
  * @param {String} numerical Y scale values, must be a numerical value
- * @param {Object} dataset Data you wish to show
+ * @param {Object} dataset Data you wish to show. If empty string default to DataContext
  * @returns d3js rendered bar chart
  */
 
@@ -24,7 +24,8 @@ const BarChart = ({dataset, string, numerical, chartWidth, chartHeight}) => {
     get width() { return chartWidth - this.margin.l - this.margin.r },
     get height() { return chartHeight - this.margin.t - this.margin.b }
   }
-  // const dataset = useContext(DataContext)
+
+  dataset == '' ? dataset = useContext(DataContext) : dataset
 
   const ref = useD3(
     (svg) => {

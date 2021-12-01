@@ -5,8 +5,6 @@ import BarChart from '../components/BarChart/BarChart'
 import { useContext } from 'react'
 
 export default function Context() {
-
-
   return (
     <div className={styles.container}>
     <Head>
@@ -22,6 +20,7 @@ export default function Context() {
           <DataProvider>
               {/* <List /> */}
             <BarChart
+              dataset={''}
               chartWidth={600}
               chartHeight={400}
               string={'name'}
