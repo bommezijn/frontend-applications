@@ -60,7 +60,8 @@
 
 .navigation_list_item__active {
   opacity: 1;
-  color: #f3b344;
+  /* color: #f3b344; */
+  color: #b61444;
 }
 .navigation_list_item__active > a {
   font-weight: bolder;
