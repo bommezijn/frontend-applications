@@ -1,0 +1,8 @@
+.graph {
+  min-height: 650px;
+  margin: 0 0;
+}
+
+.bar:hover {
+  opacity: 0.75;
+}

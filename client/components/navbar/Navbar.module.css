@@ -7,7 +7,7 @@
   justify-content: flex-start;
   padding: 0 1em;
   background-color: #ffffff;
-  border-bottom: 2px solid #F3F3F4;
+  border-bottom: 2px solid #f3f3f4;
 }
 
 .logo {
@@ -36,12 +36,14 @@
   font-weight: bold;
   opacity: 0.5;
   color: black;
-  transition: opacity 200ms ease-in, border-radius 150ms ease-in, background-color 250ms ease-in;
+  transition: opacity 200ms ease-in, border-radius 150ms ease-in,
+    background-color 250ms ease-in;
 }
 
-.navigation_list_item:hover, .navigation_list_item:active {
+.navigation_list_item:hover,
+.navigation_list_item:active {
   opacity: 1;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
   border-radius: 5px;
 }
 
@@ -51,6 +53,15 @@
   transition: opacity 200ms ease-in;
 }
 
-.linkGithub:hover,.linkGithub:active {
+.linkGithub:hover,
+.linkGithub:active {
   opacity: 1;
+}
+
+.navigation_list_item__active {
+  opacity: 1;
+  color: #f3b344;
+}
+.navigation_list_item__active > a {
+  font-weight: bolder;
 }

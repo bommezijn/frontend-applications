@@ -1,10 +1,11 @@
+import React from 'react';
 import { useContext } from 'react';
 import DataContext from '../../contexts/DataContext';
 
 const List = () => {
   return (
     <ul>
-      <ListItem />
+      {useContext(DataContext) && <ListItem />}
     </ul>
   )
 }
@@ -17,9 +18,10 @@ const List = () => {
  */
 const ListItem = () => {
   const dataElements = useContext(DataContext)
+  console.log(`List>ListItem:`,dataElements);
   return (
       <>
-        {dataElements.map((e,i) => {return <li key={i}>{e?.name}</li>})}
+        {dataElements && dataElements.map((e,i) => {return <li key={i}>{e?.name}</li>})}
       </>
   )
 }

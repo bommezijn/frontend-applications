@@ -13,3 +13,5 @@ const fetchData = async (url, endpoint) => {
 }
 
 export default fetchData
+
+// Not in use right now.
