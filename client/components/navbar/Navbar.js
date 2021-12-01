@@ -30,7 +30,7 @@ const NavItems = ({pages}) => {
   return <ul className={styles.navigation_list}>
     {
       pages.map((p,i) => {
-        console.log(router.pathname, p.slug)
+        // console.log(router.pathname, p.slug)
         return <li key={i} className={`${router.pathname === p.slug ? isActive : styles.navigation_list_item}`}>
           <Link href={p.slug}>
             <a>

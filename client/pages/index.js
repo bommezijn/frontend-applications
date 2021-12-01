@@ -58,8 +58,6 @@ TODO: Update the barChart on a clickEvent with fetch function getData(useState(d
         </div>
           <a href="https://www.themoviedb.org/">@themoviedb</a>
         </section>
-        {console.log(pageNum, data)}
-
       </main>
     </div>
   )
