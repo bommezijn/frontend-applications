@@ -11,10 +11,12 @@ import styles from '../BarChart/BarChart.module.css'
 //  * @param {Object} Dataset dataset from an API. JSON format
  * @param {Number} chartHeight Height of SVG in px
  * @param {Number} chartWidth Width of SVG in px
+ * @param {String} string X scale values, must be strings
+ * @param {String} numerical Y scale values, must be a numerical value
+ * @param {Object} dataset Data you wish to show
  * @returns d3js rendered bar chart
  */
 
-// const dataset = useContext(DataContext)
 
 const BarChart = ({dataset, string, numerical, chartWidth, chartHeight}) => {
   const dimensions = {
