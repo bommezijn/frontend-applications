@@ -35,7 +35,7 @@ This course is specifically given by the Hogeschool van Amsterdam CMD. More info
 Clone the project
 
 ```bash
-  git clone https://github.com/bommezijn/frontend-data.git
+  git clone https://github.com/bommezijn/frontend-applications.git
 ```
 Go to the project directory
 ```bash
