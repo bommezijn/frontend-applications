@@ -3,6 +3,9 @@ module.exports = {
   images: {
     domains: ['c.tenor.com'],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   async headers() {
     return [
       {
