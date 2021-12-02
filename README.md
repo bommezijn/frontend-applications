@@ -1,6 +1,6 @@
 
 <!-- Add badges from somewhere like: [shields.io](https://shields.io/) -->
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)  [![gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat)](https://gitmoji.dev) 
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)  [![gitmoji](https://img.shields.io/badge/gitmoji-%20😜%20😍-FFDD67.svg?style=flat)](https://gitmoji.dev)  [![Next.js](https://img.shields.io/badge/Next.js-black.svg?style=flat&logo=nextdotjs)](https://nextjs.org) 
 
 # Frontend Applications
 
@@ -25,9 +25,9 @@ This course is specifically given by the Hogeschool van Amsterdam CMD. More info
 
 ## Demo
 
-![CleanShot 2021-11-17 at 23 27 06](giffy)
+![CleanShot 2021-12-02 at 16 10 34](https://user-images.githubusercontent.com/13199349/144448851-54874811-f230-4f70-9220-7ad0a2988cee.gif)
 
-[Future link to hosted application.](https://www.github.com/bommezijn/frontend-applications) 
+[Hosted on vercel](https://frontend-applications-eight.vercel.app/) 
 
 
 ## Run Locally
