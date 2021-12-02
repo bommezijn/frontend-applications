@@ -4,7 +4,12 @@ import styles from '../styles/Home.module.css'
 import style from '../styles/Test.module.css'
 import BarChart from '../components/BarChart/BarChart'
 
-//https://frontend-applications-kvx2iph88-dewarian.vercel.app/api/popular
+/**
+ * @description Get data from API route
+ * @param {String} url link the API
+ * @param {*} pageNumber Which page you want to retrieve
+ * @returns JSON Object
+ */
 const getData = async(url, pageNumber) => {
   const res = await fetch(`${url}?page=${pageNumber}`)
   const data = await res.json()
@@ -28,11 +33,6 @@ export default function Home() {
       })
     },[pageNum])
 
-/* 
-//TODO: Fetch data on interaction
-//TODO: Populate barChart with new Data
-//TODO: Update the barChart on a clickEvent with fetch function getData(useState(data))
-*/
   return (
     <div className={styles.container}>
       <Head>

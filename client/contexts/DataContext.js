@@ -1,7 +1,11 @@
 import { createContext, useState, useEffect } from 'react'
-import fetchData from '../utilities/fetchData'
 import { roundNumber,numberToGender,createPath } from '../utilities/helpers';
 
+/**
+ * @description data retrieval specifically for the context
+ * @param {Number} pageNum Which page you want to retrieve
+ * @returns JSON Object
+ */
 const retrieveData = async (pageNum = 1) => {
   const url = `https://frontend-applications-kvx2iph88-dewarian.vercel.app/api/popular?page=${pageNum}`
   const response = await fetch(url)

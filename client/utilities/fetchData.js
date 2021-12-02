@@ -1,5 +1,11 @@
 // 'https://api.themoviedb.org/3'
 // '/person/popular'
+/**
+ * @description fetchData utility that retrieves data from an external API
+ * @param {String} url link to API
+ * @param {String} endpoint endpoints you wish to get data from
+ * @returns JSON Object
+ */
 const fetchData = async (url, endpoint) => {
   // url = `https://api.themoviedb.org/3${endpoint}?api_key=${process.env.NEXT_PUBLIC_API_KEY}`
 
