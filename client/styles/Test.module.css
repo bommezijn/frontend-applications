@@ -88,3 +88,9 @@
   color: #413c89;
   cursor: pointer;
 }
+
+.altGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  gap: 0.5em;
+}

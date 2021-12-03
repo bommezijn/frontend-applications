@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/Image';
 import styles from '../styles/Home.module.css';
+import style from '../styles/Test.module.css';
 import { useState, useEffect } from 'react';
 
 const getData = async (url, pageNumber) => {
@@ -30,7 +31,7 @@ export default function currentPlaying() {
     });
   }, [pageNum]);
 
-  console.log(data);
+  // console.log(data);
   return (
     <div className={styles.containerAlt}>
       <Head>
@@ -43,7 +44,7 @@ export default function currentPlaying() {
       </Head>
       <main>
         <h1>Currently Playing</h1>
-        <section>
+        <section className={style.altGrid}>
           {data.map((card, index) => {
             return (
               <CardComponent key={index} data={card} width={250} height={400} />
@@ -59,7 +60,7 @@ const CardComponent = ({ data, width, height }) => {
   return (
     <div className={styles.card}>
       <Image src={data.poster} alt={data.title} width={width} height={height} />
-      <h2>{data.title}</h2>
+      <h3>{data.title}</h3>
       <p>{data.vote} / 10</p>
     </div>
   );
