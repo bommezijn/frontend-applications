@@ -22,7 +22,7 @@ export default async function handler(req, res) {
           poster: createPath(IMAGE_URL, element.poster_path),
         };
       });
-      console.log(results.length, results);
+      // console.log(results.length, results);
       return res.status(200).json(await results);
     } catch (error) {
       res.status(200).json({ error: 'error' });
