@@ -4,6 +4,9 @@ module.exports = {
     domains: ['c.tenor.com'],
     domains: ['image.tmdb.org'],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   async headers() {
     return [
       {
