@@ -3,6 +3,10 @@
   background-color: #f5f7fb;
 }
 
+.containerAlt {
+  padding: 0 2rem;
+}
+
 .main {
   min-height: 100vh;
   /* padding: 4rem 0; */
