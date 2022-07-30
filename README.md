@@ -61,6 +61,9 @@ Lint directories
 
 [My process and journey](https://github.com/bommezijn/frontend-applications/wiki)
 
+### Related projects
+[Front-end Data (static variant)](https://github.com/bommezijn/frontend-data)
+[Functional Programming](https://github.com/bommezijn/functional-programming)
 
 ## Authors
 
